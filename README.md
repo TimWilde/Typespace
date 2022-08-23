@@ -14,6 +14,8 @@ This is implicitly converted to a string as:
 
 The C# code defining the above example nested class heirarchy looks like this:
 
+(This becomes more economical when the number of properties - IDs per page - increases)
+
 ```csharp
 public class Example
 {
