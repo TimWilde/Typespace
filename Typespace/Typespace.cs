@@ -40,7 +40,7 @@ public class Typespace
 
       return nameSpan.StartsWith( "get_", StringComparison.InvariantCultureIgnoreCase ) ||
              nameSpan.StartsWith( "set_", StringComparison.InvariantCultureIgnoreCase )
-                ? nameSpan.Slice( 4 )
+                ? nameSpan[ 4.. ]
                 : nameSpan;
    }
 }

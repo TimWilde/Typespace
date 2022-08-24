@@ -5,11 +5,10 @@ namespace TypespaceConversion.Tests;
 public class Tests
 {
    private static readonly string Capture = Example.Test;
-
    private static string Diversion => Example.Page.SubSection.Row.Header;
 
    [Test]
-   public void Should_parse_the_type_structure_into_a_valid_cypress_data_name()
+   public void Should_generate_hyphenated_html_friendly_names()
    {
       Example.Test
          .Should().Be( "example-test" );
