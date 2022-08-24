@@ -1,9 +1,13 @@
 using FluentAssertions;
 
-namespace CypressAttribute.Tests;
+namespace TypespaceConversion.Tests;
 
 public class Tests
 {
+   private static readonly string Capture = Example.Test;
+
+   private static string Diversion => Example.Page.SubSection.Row.Header;
+
    [Test]
    public void Should_parse_the_type_structure_into_a_valid_cypress_data_name()
    {
@@ -13,9 +17,6 @@ public class Tests
       Example.Page.SubSection.Row.Header
          .Should().Be( "example-page-subsection-row-header" );
    }
-
-   private static string Diversion => Example.Page.SubSection.Row.Header;
-   private static readonly string Capture = Example.Test;
 
    [Test]
    public void Should_still_work_through_intermediates()
@@ -30,7 +31,7 @@ public class Tests
    [Test]
    public void Should_build_a_valid_cypress_data_attribute()
    {
-      Example.Page.SubSection.Row.Header.ToDataCy()
+      Example.Page.SubSection.Row.Header.ToData( "cy" )
          .Should().Be( "data-cy=\"example-page-subsection-row-header\"" );
    }
 }

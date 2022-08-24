@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CypressAttribute.Tests\CypressAttribute.Tests.csproj" />
+    <ProjectReference Include="..\TypespaceConversion.Tests\TypespaceConversion.Tests.csproj" />
   </ItemGroup>
 
 </Project>

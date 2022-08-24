@@ -1,8 +1,8 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Order;
-using CypressAttribute.Tests;
+using TypespaceConversion.Tests;
 
-namespace CypressAttributeConsole;
+namespace TypespaceConversion.Benchmarks.Console;
 
 [MemoryDiagnoser]
 [Orderer( SummaryOrderPolicy.FastestToSlowest )]
@@ -12,6 +12,6 @@ public class Benchmarks
    [Benchmark]
    public void RunTheThing()
    {
-      Example.Page.SubSection.Row.Header.ToString();
+      string s = Example.Page.SubSection.Row.Header;
    }
 }

@@ -3,19 +3,19 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.RegularExpressions;
 
-namespace CypressAttribute.Tests;
+namespace TypespaceConversion;
 
-public class Cypress
+public class Typespace
 {
    private static readonly Regex NonAlphaNumeric =
       new( "[^a-z0-9-]", RegexOptions.IgnoreCase | RegexOptions.Compiled );
 
-   private Cypress() { }
+   private Typespace() { }
 
-   public static Cypress Name => new();
+   public static Typespace Name => new();
 
    [MethodImpl( MethodImplOptions.NoInlining )]
-   public static implicit operator string( Cypress _ )
+   public static implicit operator string( Typespace _ )
    {
       var frame = new StackFrame( 1 );
       MethodBase? method = frame.GetMethod();

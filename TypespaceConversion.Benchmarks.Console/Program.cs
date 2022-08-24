@@ -1,6 +1,6 @@
 ﻿using BenchmarkDotNet.Running;
 
-namespace CypressAttributeConsole;
+namespace TypespaceConversion.Benchmarks.Console;
 
 public class Program
 {

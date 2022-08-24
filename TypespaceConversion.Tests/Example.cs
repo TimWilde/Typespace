@@ -1,8 +1,8 @@
-namespace CypressAttribute.Tests;
+namespace TypespaceConversion.Tests;
 
 public class Example
 {
-   public static string Test => Cypress.Name;
+   public static string Test => Typespace.Name;
 
    public class Page
    {
@@ -10,7 +10,7 @@ public class Example
       {
          public class Row
          {
-            public static string Header => Cypress.Name;
+            public static string Header => Typespace.Name;
          }
       }
    }
