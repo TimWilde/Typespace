@@ -3,3 +3,6 @@ bin/
 obj/
 
 *.DotSettings.user
+.idea/**/workspace.xml
+.idea/**/usage.statistics.xml
+.idea/**/shelf/

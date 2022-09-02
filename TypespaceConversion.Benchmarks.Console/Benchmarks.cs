@@ -12,6 +12,6 @@ public class Benchmarks
    [Benchmark]
    public void RunTheThing()
    {
-      string s = Example.Page.SubSection.Row.Header;
+      string _ = Example.Page.SubSection.Row.Header;
    }
 }

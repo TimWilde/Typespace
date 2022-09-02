@@ -1,16 +1,18 @@
 namespace TypespaceConversion.Tests;
 
-public class Example
+public static class Example
 {
-   public static string Test => Typespace.Name;
+   private static string? test;
+   public static string Test => test ??= Typespace.Name;
 
-   public class Page
+   public static class Page
    {
-      public class SubSection
+      public static class SubSection
       {
-         public class Row
+         public static class Row
          {
-            public static string Header => Typespace.Name;
+            private static string? header;
+            public static string Header => header ??= Typespace.Name;
          }
       }
    }
