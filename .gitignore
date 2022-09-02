@@ -1,8 +1,6 @@
 .vs/
 bin/
 obj/
+.idea/
 
 *.DotSettings.user
-.idea/**/workspace.xml
-.idea/**/usage.statistics.xml
-.idea/**/shelf/
