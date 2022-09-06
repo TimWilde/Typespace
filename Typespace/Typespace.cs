@@ -11,13 +11,15 @@ public class Typespace
       new( "[^a-z0-9-]", RegexOptions.IgnoreCase | RegexOptions.Compiled );
 
    private Typespace() { }
+   
+   public static bool IsEnabled { get; set; } = true;
 
-   public static Typespace Name => new();
+   public static string Name( ref string? cachedValue ) => IsEnabled ? cachedValue ??= new Typespace() : string.Empty;
 
    [MethodImpl( MethodImplOptions.NoInlining )]
    public static implicit operator string( Typespace _ )
    {
-      var frame = new StackFrame( 1 );
+      var frame = new StackFrame( 2 );
       MethodBase? method = frame.GetMethod();
       Type? declaringType = method?.DeclaringType;
 

@@ -4,8 +4,14 @@ namespace TypespaceConversion.Tests;
 
 public class Tests
 {
-   private static readonly string Capture = Example.Test;
+   private static readonly string? Capture = Example.Test;
    private static string Diversion => Example.Page.SubSection.Row.Header;
+
+   [SetUp]
+   public void Before_each_test()
+   {
+      Typespace.IsEnabled = true;
+   }
 
    [Test]
    public void Should_generate_hyphenated_html_friendly_names()
@@ -32,5 +38,12 @@ public class Tests
    {
       Example.Page.SubSection.Row.Header.ToData( "cy" )
          .Should().Be( "data-cy=\"example-page-subsection-row-header\"" );
+   }
+
+   [Test]
+   public void Should_return_an_empty_string_when_typespace_is_disabled()
+   {
+      Typespace.IsEnabled = false;
+      Example.Test.ToData( "cy" ).Should().BeEmpty();
    }
 }
