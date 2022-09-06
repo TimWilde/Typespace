@@ -4,7 +4,6 @@ namespace TypespaceConversion.Tests;
 
 public class Tests
 {
-   private static readonly string? Capture = Example.Test;
    private static string Diversion => Example.Page.SubSection.Row.Header;
 
    [SetUp]
@@ -26,8 +25,8 @@ public class Tests
    [Test]
    public void Should_still_work_through_intermediates()
    {
-      Capture
-         .Should().Be( "example-test" );
+      string capture = Example.Test;
+      capture.Should().Be( "example-test" );
 
       Diversion
          .Should().Be( "example-page-subsection-row-header" );
@@ -44,6 +43,12 @@ public class Tests
    public void Should_return_an_empty_string_when_typespace_is_disabled()
    {
       Typespace.IsEnabled = false;
+
+      Example.Page.SubSection.Row.Header.Should().BeEmpty();
       Example.Test.ToData( "cy" ).Should().BeEmpty();
+      Diversion.Should().BeEmpty();
+
+      string capture = Example.Test;
+      capture.Should().BeEmpty();
    }
 }

@@ -11,10 +11,19 @@ public class Typespace
       new( "[^a-z0-9-]", RegexOptions.IgnoreCase | RegexOptions.Compiled );
 
    private Typespace() { }
-   
+
+   /// <summary>
+   ///    Enables or disables the Typespace functionality
+   /// </summary>
    public static bool IsEnabled { get; set; } = true;
 
-   public static string Name( ref string? cachedValue ) => IsEnabled ? cachedValue ??= new Typespace() : string.Empty;
+   /// <summary>
+   ///    Generates the textual representation of the nested type hierarchy
+   /// </summary>
+   /// <param name="cachedValue">parameter in to which to cache the generated value</param>
+   /// <param name="disabledDefault">the value to return when Typespace is disabled. (default: string.Empty)</param>
+   /// <returns>string representing the type hierarchy if enabled, otherwise <paramref name="disabledDefault" /> is returned</returns>
+   public static string Name( ref string? cachedValue, string disabledDefault = "" ) => IsEnabled ? cachedValue ??= new Typespace() : disabledDefault;
 
    [MethodImpl( MethodImplOptions.NoInlining )]
    public static implicit operator string( Typespace _ )
